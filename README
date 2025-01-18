@@ -1,0 +1,13 @@
+## Installing project
+
+npm install
+
+## Running Tests
+
+To run the tests using Playwright, use the following command:
+
+headless:
+npx playwright test
+
+headed/UI mode:
+npx playwright test --ui
