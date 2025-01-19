@@ -6,6 +6,11 @@ Click on the expander icon next to "IntelliJ IDEA overview".
 Verify that the nested items under "IntelliJ IDEA overview" are displayed.
 Click on the expander icon again.
 Expected Result: The nested items under "IntelliJ IDEA overview" should collapse and be hidden.
+Checklist:
+- [ ] Click on the expander icon next to "IntelliJ IDEA overview".
+- [ ] Verify that the nested items under "IntelliJ IDEA overview" are displayed.
+- [ ] Click on the expander icon again.
+- [ ] Verify that the nested items under "IntelliJ IDEA overview" are hidden.
 
 2. Test Case: Verify Navigation and Highlighting of Active Link
 
@@ -15,6 +20,10 @@ Click on the "Installation guide" link in the navigation bar.
 Verify that the "Installation guide" page is displayed.
 Verify that the "Installation guide" link is highlighted BLUE as active.
 Expected Result: The "Installation guide" page should be displayed and the link should be highlighted as active.
+Checklist:
+- [ ] Click on the "Installation guide" link in the navigation bar.
+- [ ] Verify that the "Installation guide" page is displayed.
+- [ ] Verify that the "Installation guide" link is highlighted BLUE as active.
 
 3. Test Case: Verify Navigation to a Deeply Nested Page
 
@@ -25,6 +34,12 @@ Click on the "IDE appearance" link.
 Click on the "Tool windows" link.
 Click on the "Arrange tool windows" link.
 Expected Result: The "Arrange tool windows" page should be displayed.
+Checklist:
+- [ ] Click on the expander icon next to "IDE configuration".
+- [ ] Click on the "IDE appearance" link.
+- [ ] Click on the "Tool windows" link.
+- [ ] Click on the "Arrange tool windows" link.
+- [ ] Verify that the "Arrange tool windows" page is displayed.
 
 4. Test Case: Verify Navigation Using Keyboard
 
@@ -34,6 +49,11 @@ Use the Tab key to navigate to the navigation bar.
 Use the Tab key to navigate to the "Getting started" and pres ENTER key.
 Use the Tab key to navigate to the "Accessibility" and pres ENTER key.
 Expected Result: The "Accessibility" page should be displayed.
+Checklist:
+- [ ] Use the Tab key to navigate to the navigation bar.
+- [ ] Use the Tab key to navigate to the "Getting started" and press ENTER key.
+- [ ] Use the Tab key to navigate to the "Accessibility" and press ENTER key.
+- [ ] Verify that the "Accessibility" page is displayed.
 
 5. Test Case: Verify Navigation Bar Responsiveness
 
@@ -46,8 +66,14 @@ Click on "hamburger menu"
 Click on "X" icon
 Expected Result:
 1. The navigation bar should be responsive and adjust its layout based on the window size.
-2. The navigation bar should open after clickng on "hamburger menu" and close on click "X".
-
+2. The navigation bar should open after clicking on "hamburger menu" and close on click "X".
+Checklist:
+- [ ] Open the browser window in full screen.
+- [ ] Gradually resize the browser window to smaller sizes.
+- [ ] Verify that the navigation bar adjusts its layout appropriately (e.g., switches to a hamburger menu).
+- [ ] Click on "hamburger menu".
+- [ ] Click on "X" icon.
+- [ ] Verify that the navigation bar opens after clicking on "hamburger menu" and closes on click "X".
 
 6. Test Case: Verify Navigation Bar Hover Effects
 
@@ -56,6 +82,9 @@ Steps:
 Hover over a few links in the navigation bar.
 Verify that the hover effect color change is applied.
 Expected Result: Each link should display the appropriate hover effect when hovered over.
+Checklist:
+- [ ] Hover over a few links in the navigation bar.
+- [ ] Verify that the hover effect color change is applied.
 
 7. Test Case: Verify Navigation Bar State Persistence
 
@@ -65,3 +94,7 @@ Click on a link in the navigation bar to navigate to a different page.
 Refresh the browser.
 Verify that the navigation bar maintains its state (e.g., the active link remains highlighted).
 Expected Result: The navigation bar should maintain its state after a page refresh.
+Checklist:
+- [ ] Click on a link in the navigation bar to navigate to a different page.
+- [ ] Refresh the browser.
+- [ ] Verify that the navigation bar maintains its state (e.g., the active link remains highlighted).
