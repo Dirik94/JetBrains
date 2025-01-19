@@ -1,10 +1,5 @@
 import { specialCategoriesHeaders } from '../../../support/asserts/subscriptionPage-specialCategories';
 import { test, expect } from '../../../support/fixtures/pages';
-test.describe('Check Pricing for Individual Use', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.jetbrains.com/idea/buy');
-  });
-});
 
 test.describe('Verify Headers for Special Categories', () => {
   test.beforeEach(async ({ page }) => {

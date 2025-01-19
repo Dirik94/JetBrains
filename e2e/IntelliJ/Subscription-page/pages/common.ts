@@ -1,7 +1,7 @@
 import { Page, Locator } from 'playwright';
 import { selectors } from '../../../support/enums/selectors';
 
-export class commonSelectors {
+export class commonLocators {
   private page: Page;
   constructor(page: Page) {
     this.page = page;
@@ -32,18 +32,20 @@ export class commonSelectors {
   }
 
   allProductsPackBuyButtonWithSuperCharge(): Locator {
-    return this.allProductsPackCard().locator('button[data-test="buy-page-buy-action-button"]').last();
+    return this.allProductsPackCard().locator(selectors.BUY_BUTTON_WITH_SUPER_CHARGE);
   }
 
   intellijUltimateBuyButtonWithSuperCharge(): Locator {
-    return this.intellijUltimateCard().locator('button[data-test="buy-page-buy-action-button"]');
+    return this.intellijUltimateCard().locator(selectors.BUY_BUTTON_WITH_SUPER_CHARGE);
   }
 
-  intellijUltimateCardSuperchargeCheckbox(): Locator {
-    return this.intellijUltimateCard().locator(selectors.CARD_ITEM).locator(selectors.SUPER_CHARGE_CHECKBOX).first();
+  intellijUltimateCardSuperchargeCheckbox(vatText: string): Locator {
+    return this.intellijUltimateCard().locator(selectors.PRICE_BLOCK).locator(`p:has-text("${vatText}")`);
   }
 
-  allProductsPackCardSuperchargeCheckbox(): Locator {
-    return this.allProductsPackCard().locator(selectors.CARD_ITEM).locator(selectors.SUPER_CHARGE_CHECKBOX).first();
+  allProductsPackCardSuperchargeCheckbox(vatText: string): Locator {
+    return this.allProductsPackCard()
+      .locator(selectors.PRICE_BLOCK)
+      .locator(this.page.locator(`p:has-text("${vatText}")`));
   }
 }

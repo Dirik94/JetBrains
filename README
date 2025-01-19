@@ -11,3 +11,7 @@ npx playwright test
 
 headed/UI mode:
 npx playwright test --ui
+
+## Manula test cases
+
+manual-test-cases.txt

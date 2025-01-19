@@ -1,6 +1,4 @@
-import { specialCategoriesHeaders } from './../../../support/asserts/subscriptionPage-specialCategories';
 import { Page, Locator } from 'playwright/test';
-import { commonSelectors } from './common';
 
 class SpecialCategoriesPage {
   private page: Page;

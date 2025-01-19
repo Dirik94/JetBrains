@@ -5,22 +5,32 @@ const baseURL = 'https://www.jetbrains.com';
 
 async function globalSetup() {
   const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto(baseURL);
-  const cookiesFrom = page.getByRole('button', { name: 'Accept All' });
-  if (cookiesFrom) {
-    await cookiesFrom.click();
+  const context = await browser.newContext();
+  const page = await context.newPage();
+
+  try {
+    await context.tracing.start({ screenshots: true, snapshots: true });
+    await page.goto(baseURL);
+    const cookiesFrom = page.getByRole('button', { name: 'Accept All' });
+    if (cookiesFrom) {
+      await cookiesFrom.click();
+    }
+    await expect(globalSetupNavigation.mainPage.developerToolsButton(page)).toBeVisible();
+    await globalSetupNavigation.mainPage.developerToolsButton(page).click();
+    await expect(globalSetupNavigation.mainPage.mainSubmenu.intellijButton(page)).toBeVisible();
+    await globalSetupNavigation.mainPage.mainSubmenu.intellijButton(page).click();
+    await page.waitForLoadState('networkidle');
+    await expect(page).toHaveURL(new RegExp('idea'));
+    await globalSetupNavigation.idea.pricingButton(page).click();
+    await page.waitForURL(new RegExp('buy'));
+    await page.context().storageState({ path: 'e2e/support/auth/storage.json' });
+  } catch (error) {
+    await context.tracing.stop({
+      path: './test-results/failed-setup-trace.zip',
+    });
+    await browser.close();
+    throw error;
   }
-  await expect(globalSetupNavigation.mainPage.developerToolsButton(page)).toBeVisible();
-  await globalSetupNavigation.mainPage.developerToolsButton(page).click();
-  await expect(globalSetupNavigation.mainPage.mainSubmenu.intellijButton(page)).toBeVisible();
-  await globalSetupNavigation.mainPage.mainSubmenu.intellijButton(page).click();
-  await page.waitForLoadState('networkidle');
-  await expect(page).toHaveURL(new RegExp('idea'));
-  await globalSetupNavigation.idea.pricingButton(page).click();
-  await page.waitForURL(new RegExp('buy'));
-  await page.context().storageState({ path: 'e2e/support/auth/storage.json' });
-  await browser.close();
 }
 
 export default globalSetup;

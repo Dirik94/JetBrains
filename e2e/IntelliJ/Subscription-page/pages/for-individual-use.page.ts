@@ -1,13 +1,13 @@
 import { Page, Locator } from 'playwright/test';
-import { commonSelectors } from './common';
+import { commonLocators } from './common';
 
 class ForIndividualUsePage {
   private page: Page;
-  commonSelectors: commonSelectors;
+  commonSelectors: commonLocators;
 
   constructor(page: Page) {
     this.page = page;
-    this.commonSelectors = new commonSelectors(this.page);
+    this.commonSelectors = new commonLocators(this.page);
   }
 
   getYearPrice(text: 'first year' | 'second year' | 'third year onwards', price: string): Locator {

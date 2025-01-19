@@ -14,3 +14,8 @@ export const specialCategoriesHeaders = [
   'For content creators',
   'For non-academic educators',
 ];
+
+export enum prices {
+  VAT_FOR_ORGANIZATIONS = '(incl. VAT €246.00)',
+  VAT_FOR_INDIVIDUAL_USE = '(incl. VAT €123.00)',
+}
